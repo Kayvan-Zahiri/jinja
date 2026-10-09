@@ -5,6 +5,8 @@ Version 3.2.0
 
 Unreleased
 
+-   The ``|urlencode`` filter treats mappings such as ``UserDict`` as
+    key-value pairs. :issue:`2269`
 -   Drop support for Python 3.7, 3.8, and 3.9.
 -   Update minimum MarkupSafe version to >= 3.0.
 -   Update minimum Babel version to >= 2.17.
