@@ -853,14 +853,16 @@ def do_indent(
         rv = (newline + indention).join(s.splitlines())
     else:
         lines = s.splitlines()
-        rv = lines.pop(0)
+        rv = lines.pop(0) if lines else s[:0]
 
         if lines:
             rv += newline + newline.join(
                 indention + line if line else line for line in lines
             )
 
-    if first:
+    # Don't invent indentation for fully empty input when blank=False.
+    # first=True used to turn "" into "    ", which breaks empty style blocks.
+    if first and (blank or rv):
         rv = indention + rv
 
     return rv
